@@ -1,8 +1,13 @@
 const Koa = require('koa'),
     router = require('koa-router')(),
     fs = require('fs'),
+    ex = require('koa-exception'),
+    bodyParser = require('koa-bodyparser'),
     puppeteer = require('puppeteer');
 const app = new Koa();
+
+app.use(ex('CN'));
+app.use(bodyParser());
 
 /**
  * query param:
@@ -67,7 +72,22 @@ router.get('/html-to-pdf', async ctx => {
  *   - heigth: "1200px"|| "30cm"
  */
 router.post('/html-to-pdf', async ctx => {
+    // console.log(ctx.request); 
     let param = ctx.request.body;
+    if (!param) {
+        ctx.body = {
+            code:500,
+            msg:'请求参数不能为空!'
+        };
+        return;
+    }
+    if (!param.html){
+        ctx.body = {
+            code:500,
+            msg:'HTML 内容不能为空!'
+        };
+        return;
+    }
     let landscape = param.orientation == 'vertical' ? false : true;
     let options = {
         // format: param.page_size || 'A3',

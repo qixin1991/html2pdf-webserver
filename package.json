@@ -14,6 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-exception": "^2.0.4",
     "koa-router": "^7.3.0",
     "puppeteer": "^1.0.0"
   }
