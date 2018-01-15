@@ -19,10 +19,10 @@ app.use(bodyParser());
  */
 router.get('/html-to-pdf', async ctx => {
     let param = ctx.query;
-    if (!param.html){
+    if (!param.html) {
         ctx.body = {
-            code:500,
-            msg:'HTML 内容不能为空!'
+            code: 500,
+            msg: 'HTML 内容不能为空!'
         };
         return;
     }
@@ -44,7 +44,7 @@ router.get('/html-to-pdf', async ctx => {
         options.width = param.width;
         options.height = param.height;
     }
-    let buffer = await convertHtml2Pdf(param.html,options);
+    let buffer = await convertHtml2Pdf(param.html, options);
     // await page.setContent
     // let buffer = await new Promise(
     //     (resolve, reject) => {
@@ -76,15 +76,15 @@ router.post('/html-to-pdf', async ctx => {
     let param = ctx.request.body;
     if (!param) {
         ctx.body = {
-            code:500,
-            msg:'请求参数不能为空!'
+            code: 500,
+            msg: '请求参数不能为空!'
         };
         return;
     }
-    if (!param.html){
+    if (!param.html) {
         ctx.body = {
-            code:500,
-            msg:'HTML 内容不能为空!'
+            code: 500,
+            msg: 'HTML 内容不能为空!'
         };
         return;
     }
@@ -106,7 +106,7 @@ router.post('/html-to-pdf', async ctx => {
         options.width = param.width;
         options.height = param.height;
     }
-    let buffer = await convertHtml2Pdf(`data:text/html,${param.html}`,options);
+    let buffer = await convertHtml2Pdf(`data:text/html,${param.html}`, options);
     ctx.set('Content-Type', 'application/pdf');
     ctx.set("Content-Disposition", "attachment; filename=html-pdf-" + new Date().getTime() + ".pdf");
     ctx.body = buffer;
@@ -117,8 +117,8 @@ router.post('/html-to-pdf', async ctx => {
  * @param {string} html url or string content.
  * @param {Object} options convert options.
  */
-async function convertHtml2Pdf(html,options) {
-    let browser = await puppeteer.launch();
+async function convertHtml2Pdf(html, options) {
+    let browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     let page = await browser.newPage();
     await page.setJavaScriptEnabled(true);
     await page.emulateMedia('print');

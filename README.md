@@ -29,3 +29,11 @@ API URL: `/html-to-pdf`
  *   - heigth: "1080px"|| "30cm"
  */
 ```
+
+### Dependency
+
+Ubuntu:
+```
+apt install libxss1
+apt install libasound2
+```
