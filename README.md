@@ -46,8 +46,8 @@ apt install -y libxss1 libx11-xcb1 libasound2 \
 pm2 start ecosystem.json
 ```
 
-### Chinse Note
-Due to the `GWF`,`Chromium` download can't be accessed.Issue the following command:
+### Chinese Note
+Due to the `GFW`,`Chromium` download can't be accessed.Issue the following command:
 
 ```
 PUPPETEER_DOWNLOAD_HOST=http://s3.jzez100.com/s3/linux npm i --registry=https://registry.npm.taobao.org
