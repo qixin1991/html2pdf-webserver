@@ -1,0 +1,13 @@
+{
+    "apps": [
+      {
+        "name": "html2pdf-webserver",
+        "script": "server.js",
+        "instances": "0",
+        "exec_mode": "cluster",
+        "out_file": "/var/log/html2pdf-webserver.log",
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "watch": "./"
+      }
+    ]
+  }

@@ -37,3 +37,8 @@ Ubuntu:
 apt install libxss1
 apt install libasound2
 ```
+
+### Run
+```
+pm2 start ecosystem.json
+```
