@@ -42,3 +42,10 @@ apt install libasound2
 ```
 pm2 start ecosystem.json
 ```
+
+### Chinse Note
+Due to the `GWF`,`Chromium` download can't be accessed.Issue the following command:
+
+```
+PUPPETEER_DOWNLOAD_HOST=http://s3.jzez100.com/s3/linux npm i --registry=https://registry.npm.taobao.org
+```
