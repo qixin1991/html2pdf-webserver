@@ -3,6 +3,7 @@
 ### Usage
 
 API URL: `/html-to-pdf`
+Default Server Port: `3000`
 
 - `GET` method
 
@@ -41,10 +42,12 @@ apt install -y libxss1 libx11-xcb1 libasound2 \
  libgconf2-4 libatk1.0-0 libgtk-3-0
 ```
 
-### Run
+### Install & Run
 ```
+npm install
 pm2 start ecosystem.json
 ```
+Open this URL: `http://localhost:3000/html-to-pdf?html=https://news.ycombinator.com` for test.
 
 ### Chinese Note
 Due to the `GFW`,`Chromium` download can't be accessed.Issue the following command:
