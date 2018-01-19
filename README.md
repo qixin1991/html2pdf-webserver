@@ -34,8 +34,11 @@ API URL: `/html-to-pdf`
 
 Ubuntu:
 ```
-apt install libxss1
-apt install libasound2
+apt install -y libxss1 libx11-xcb1 libasound2 \
+ libxcomposite-dev libxcursor-dev libxdamage-dev \
+ libxi-dev libxtst-dev libcups2 libxrandr2 \
+ libpangocairo-1.0-0 libxi6 libxtst6 libnss3 \
+ libgconf2-4 libatk1.0-0 libgtk-3-0
 ```
 
 ### Run
