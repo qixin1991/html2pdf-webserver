@@ -32,10 +32,10 @@ router.get('/html-to-pdf', async ctx => {
         landscape: landscape,
         printBackground: true,
         margin: {
-            top: "0",
-            right: "0",
-            bottom: "0",
-            left: "0"
+            top: param.top || "0",
+            right: param.right || "0",
+            bottom: param.bottom || "0",
+            left: param.left || "0"
         }
     };
     if (param.page_size) {
