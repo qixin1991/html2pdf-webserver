@@ -59,7 +59,8 @@ router.get('/html-to-pdf', async ctx => {
     //     }
     // )
     ctx.set('Content-Type', 'application/pdf');
-    ctx.set("Content-Disposition", "attachment; filename=html-pdf-" + new Date().getTime() + ".pdf");
+    if (!param.preview)
+        ctx.set("Content-Disposition", "attachment; filename=html-pdf-" + new Date().getTime() + ".pdf");
     ctx.body = buffer;
 });
 
