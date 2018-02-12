@@ -42,6 +42,12 @@ apt install -y libxss1 libx11-xcb1 libasound2 \
  libgconf2-4 libatk1.0-0 libgtk-3-0
 ```
 
+CentOS:
+
+```
+yum install -y libXScrnSaver
+```
+
 ### Install & Run
 ```
 npm install

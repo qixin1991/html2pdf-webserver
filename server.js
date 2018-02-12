@@ -7,7 +7,20 @@ const Koa = require('koa'),
 const app = new Koa();
 
 app.use(ex('CN'));
-app.use(bodyParser());
+app.use(bodyParser({
+    jsonLimit: '200mb',
+    formLimit: '200mb'
+}));
+// app.use(async (ctx, next) => {
+//     ctx.set('Access-Control-Allow-Origin', '*');
+//     ctx.set('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
+//     ctx.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Headers");
+//     if (ctx.method == 'OPTIONS') {
+//       ctx.status = 204;
+//       return;
+//     }
+//     await next();
+//   });
 
 /**
  * query param:
@@ -73,15 +86,7 @@ router.get('/html-to-pdf', async ctx => {
  *   - heigth: "1200px"|| "30cm"
  */
 router.post('/html-to-pdf', async ctx => {
-    // console.log(ctx.request); 
     let param = ctx.request.body;
-    if (!param) {
-        ctx.body = {
-            code: 500,
-            msg: '请求参数不能为空!'
-        };
-        return;
-    }
     if (!param.html) {
         ctx.body = {
             code: 500,
@@ -95,10 +100,10 @@ router.post('/html-to-pdf', async ctx => {
         landscape: landscape,
         printBackground: true,
         margin: {
-            top: "0",
-            right: "0",
-            bottom: "0",
-            left: "0"
+            top: param.top || "0",
+            right: param.right || "0",
+            bottom: param.bottom || "0",
+            left: param.left || "0"
         }
     };
     if (param.page_size) {
@@ -109,7 +114,8 @@ router.post('/html-to-pdf', async ctx => {
     }
     let buffer = await convertHtml2Pdf(`data:text/html,${param.html}`, options);
     ctx.set('Content-Type', 'application/pdf');
-    ctx.set("Content-Disposition", "attachment; filename=html-pdf-" + new Date().getTime() + ".pdf");
+    if (!param.preview)
+        ctx.set("Content-Disposition", "attachment; filename=html-pdf-" + new Date().getTime() + ".pdf");
     ctx.body = buffer;
 });
 
@@ -123,7 +129,7 @@ async function convertHtml2Pdf(html, options) {
     let page = await browser.newPage();
     await page.setJavaScriptEnabled(true);
     await page.emulateMedia('print');
-    await page.goto(html, { waitUntil: 'networkidle0' })
+    await page.goto(html, { waitUntil: 'networkidle0', timeout: 900000 }); // 900 seconds
     let buffer = await page.pdf(options);
     await browser.close();
     return buffer;
