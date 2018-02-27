@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <style>
+        .pageItem {
+            width: 1215px;
+            height: 909px;
+            border: 4px solid #000;
+            box-sizing: border-box;
+            padding: 4px;
+            font-size: 0;
+        }
+
+        .page {
+            width: 553px;
+            height: 100%;
+            box-sizing: border-box;
+            border: 1px solid #000;
+            display: inline-block;
+            overflow: hidden;
+            font-size: 16px;
+            position: relative;
+            letter-spacing: 7px;
+        }
+
+        .page>.lineTitle {
+            height: 53px;
+            border-bottom: 2px solid #000;
+        }
+
+        .page>.line:nth-child(2) {
+            border-bottom: 2px solid #000;
+        }
+
+        .page>.lineContainer {
+            width: 320px;
+            padding-right: 40px;
+        }
+
+        .page>.lineContainer>line:first-child {
+            border-bottom: 2px solid #000;
+        }
+        .pageTheme2 .line  .tplBox:first-child {padding-right: 0;}
+        .line  .tplBox:first-child {padding-right: 40px;}
+        .tplBox {
+            padding-right: 60px;
+            position: relative;
+        }
+        .tplBox .nameBox {
+            position: absolute;
+            margin-right: -30px;
+        }
+        .pageTheme2 .line  .tplBox:first-child .nameBox {
+            position: absolute;
+            right: -30px;
+            margin-right: 0;
+            font-size: 20px;
+        }
+        .desc {
+        }
+        .page .line {
+            width: 100%;
+            writing-mode: vertical-rl;
+            box-sizing: border-box;
+            padding: 13px 18px;
+            line-height: 25px;
+            height: 168px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #000;
+        }
+
+        .page>.header:first-child {
+               height: 800px;
+                position: absolute;
+                left: 0;
+                top: 13px;
+        }
+
+        .page>.header:nth-child(2) {
+    width: 26%;
+    font-size: 105px;
+    position: absolute;
+    right: 235px;
+    height: 761px;
+    top: 75px;
+        }
+
+        .page>.header:nth-child(3) {
+              writing-mode: vertical-rl;
+            height: 100%;
+            width: 15%;
+            display: inline-block;
+            box-sizing: border-box;
+            font-size: 46px;
+            position: absolute;
+            top: 25%;
+            right: 15px;
+        }
+
+        .page>.header {
+            writing-mode: vertical-rl;
+            height: 100%;
+            width: 15%;
+            display: inline-block;
+            box-sizing: border-box;
+            font-size: 46px;
+        }
+
+        .rightIn2 {
+            height: calc(100% - 55px);
+            width: 55px;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+            position: absolute;
+            top: 55px;
+            left: 360px;
+        }
+
+        .rightIn1 {
+            height: calc(100% - 55px);
+            width: 55px;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+            position: absolute;
+            top: 55px;
+            left: 417px;
+        }
+
+        .rightIn0 {
+            height: 100%;
+            width: 75px;
+            border-left: 2px solid #000;
+            border-right: 2px solid #000;
+            position: absolute;
+            top: 0;
+            left: 474px;
+            background: white;
+        }
+
+        .shiName {
+            height: 165px;
+            text-align: center;
+            font-size: 30px;
+            display: table;
+        }
+
+        .shiName > div {
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .middle {
+            width: 85px;
+            height: 100%;
+            box-sizing: border-box;
+            border: 4px solid #000;
+            display: inline-block;
+            margin: 0 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        #gene_name {
+            font-size: 47px;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .black_sj {
+            height: 87px;
+            border-top: 1px solid #000;
+        }
+
+        .black_sj>div:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background: #000;
+            transform: rotate(45deg) translate(-65px, 53px);
+        }
+
+        .black_sj>div:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            background: #000;
+            transform: rotate(45deg) translate(-32px, -120px);
+        }
+
+        .black_sj>div:nth-child(3) {
+            background: #000;
+            width: 100%;
+            height: 39px;
+            transform: translate(0, -196px);
+        }
+
+        .black_sj>div:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            transform: rotate(45deg) translate(-130px, -114px);
+            border-top: 1px solid;
+            border-left: 1px solid;
+        }
+
+        .middle>div:nth-child(3) {
+            font-size: 30px;
+            writing-mode: vertical-rl;
+            text-align: start;
+            width: 100%;
+            transform: translate(-2px, 18px);
+        }
+
+        .middle>div:nth-child(4) {
+            font-size: 45px;
+            text-align: center;
+            position: absolute;
+            bottom: 15px;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.js"></script>
+</head>
+
+<body>
+     <div class="pageItem">
+        <div class="page">
+        </div>
+        <div class="middle">
+            <div id="gene_name">啦啦啦啦</div>
+            <div class="black_sj">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div>卷五</div>
+            <div>壮羡堂</div>
+        </div>
+        <div class="page">
+            <div class="header" id="modified_time">公元二零一七年丁酉续修</div>
+            <div class="header" id="founder_name">周东方录</div>
+            <div class="header" id="family_city">金陵</div>
+        </div>
+    </div> 
+</body>
+<!-- <script src="./data.js"></script> -->
+<script>
+    $(document).ready(function () {
+          window.codeMap = {
+            1: '一',
+            2: "二",
+            3: "三",
+            4: "四",
+            5: "五",
+            6: "六",
+            7: "七",
+            8: "八",
+            9: "九"
+        }
+        var data = {"founder_name":"录","family_city":"","modified_time":"公元二零一七年丁酉续修","genealogy_name":"赵氏家谱","contents":[{"mother":"","gender":1,"name":"松荣","rank":1,"description":"","id":802,"spouseName":[{"spName":"王小凤","spId":810}],"genealogy":1,"status":"已故"},{"mother":"","gender":1,"name":"小松","rank":1,"description":"","id":804,"spouseName":[],"genealogy":1,"status":"健在"},{"mother":"","gender":1,"name":"大","rank":1,"description":"","id":255,"spouseName":[{"spName":"小雪","spId":256}],"genealogy":1,"status":"健在"},{"fatherName":"松荣","mother":"","gender":1,"fatherId":802,"name":"冯","rank":1,"description":"","id":809,"spouseName":[],"genealogy":2,"status":"健在"},{"fatherName":"冯","mother":"","gender":1,"fatherId":809,"name":"天","rank":1,"description":"","id":812,"spouseName":[],"genealogy":3,"status":"已故"}]};
+        // $.ajax({
+        //     method:'GET',
+        //     url: 'http://172.20.7.250:8080/gene-oms/pdf',
+        //     async: false,
+        //     data: {
+        //         genealogyId: 255
+        //     },
+        //     success: (resp) => {
+        //         data = resp;
+        //         dealDatas();
+        //     }
+        // });
+        dealDatas();
+
+        function codeRender(num) {
+            if((num*1) < 10) return codeMap[num]
+            if(num*1 == 10) return "十";
+            var t = num+"";
+            var r = "";
+            if(t[0] == 1) r+='十'
+            else r+=codeMap[t[0]]
+
+            r+= codeMap[t[1]]
+        }
+        var genealogyMapArray = [
+
+        ]
+        // 处理页码
+        function dealDatas() {
+            $("#founder_name").text(data.founder_name);
+            $("#modified_time").text(data.modified_time);
+            $("#family_city").text(data.family_city);
+            $("#gene_name").text(data.genealogy_name);
+            // 默认theme每页的cols 为 21，  theme2每页的cols 12
+            // 过滤出以5为基数的世组
+            var geneasMap = {};
+            var maxgen = 0; // 最大世
+            for(var i = 0; i < data.contents.length; i++) {
+                var geneaItem = data.contents[i];
+                // genealogy 为世层级
+                geneasMap[geneaItem.genealogy] ? geneasMap[geneaItem.genealogy].push(geneaItem) : geneasMap[geneaItem.genealogy] = [geneaItem]
+
+                maxgen = geneaItem.genealogy;
+            }
+            // 以5为基数 拆分 页为基数的层级关系
+            console.log(geneasMap);
+            // 页基准
+            var geneasByPage = [];
+            // 单位基数集合
+            var unitDataMap = [];
+
+            for(var i in geneasMap) {
+                unitDataMap.push(geneasMap[i]);
+                if(i%5 == 0 || i == maxgen) {
+                    // 计算一组里面 所有页面数据并且比较出最大页面数据 并且构造分页数据结构 设置到geneasByPage 数组中
+                    caculatePageDataMap(geneasByPage, unitDataMap);
+                    unitDataMap = [];
+                }
+            }
+
+            console.log(geneasByPage);
+            for(var i = 0; i < geneasByPage.length; i++) {
+                appendAreaBox(geneasByPage[i]);
+            }
+        }
+        // 构建页数数据结构
+        function caculatePageDataMap(pageArrays, unitArrays) {
+            var maxPage = 1;
+            for(var i = 0; i < unitArrays.length; i++) {
+                // 排在第i位的世
+                var genItems = unitArrays[i];
+                var cols = 0;
+                for(var j = 0; j < genItems.length; j++) {
+                    // 提取排在第i位的世的模板
+                    var genItemTpl = genItems[j];
+                    // 计算出 第一个模板
+                    cols += Math.ceil((genItemTpl.description.length + 24)/6);
+                }
+                // 一页33 个cols
+                var curPage = Math.ceil(cols/33);
+                if(curPage > maxPage) maxPage = curPage;
+            }
+            var pages = [];
+            // 根据页数  渲染合法数据结构
+            for(var i =0; i < maxPage; i++) {
+                pages.push(unitArrays);
+            }
+            pageArrays.push(pages);
+        }
+        
+        // 追加基于五世的box
+        function appendAreaBox(pages) {
+             var areaBox = $("<div class='pageArea'></div>");
+             areaBox.appendTo(document.body);
+             for(var i = 0; i < pages.length; i++) {
+                var item = appendPageItem(pages[i], i);
+                item.appendTo(areaBox);
+             }
+        }
+        // 追加每一页
+        function appendPageItem(item, i) {
+            var pageItem = $("<div class='pageItem'></div>");
+            // 第一页
+            if(i == 0) appendRight2(pageItem, item)
+            else appendRight(pageItem, item)
+
+            prependMiddle(pageItem);
+
+            prependLeft(pageItem, item);
+            return pageItem;
+        }
+        // 追加右侧模板1
+        function appendRight(target, data) {
+            console.log("rigght");
+            var pageBox = $("<div class='page'></div>");
+            target.prepend(pageBox);
+            pageBox.append('<div class="lineTitle"></div>');
+            for(var i = 0; i < data.length; i++) {
+                var lineTarget = $('<div class="line"></div>');
+                pageBox.append(lineTarget);
+                var item = data[i];
+                var maxLengh = 120;
+                for(var g =0; g < item.length; g++) {
+                    var one = item[g];
+                    if(one.description == '') continue;
+                    if(g != 0) {
+                        maxLengh-=24;
+                        if(maxLengh <= 0) break
+                    }
+                    var tplkBox = $('<div class="tplBox"></div>');
+                    lineTarget.append(tplkBox);
+                    var nameBox = $('<div class="nameBox"></div>');
+                    tplkBox.append(nameBox);
+                    nameBox.html(one.name);
+                    var descBox = $('<div class="desc"></div>');
+                    tplkBox.append(descBox);
+                    // 模板1总长度为 120
+                    if(one.description.length <= maxLengh) {
+                        descBox.html(one.description);
+                        maxLengh -= one.description.length;
+                        one.description = "";
+                    }
+                    else {
+                        var nums = (6-maxLengh%6) + maxLengh
+                        var tpdesc = one.description.substr(0,nums);
+                        descBox.html(tpdesc);
+                        one.description = one.description.replace(tpdesc, "");
+                        break
+                    }
+                }
+            }
+        }
+        // 追加右侧模板2
+        function appendRight2(target, data) {
+            console.log("right2");
+            var pageBox = $("<div class='page pageTheme2'></div>");
+            pageBox.appendTo(target);
+            pageBox.append('<div class="lineTitle"></div>');
+            var mapBox = $("<div class='lineContainer'></div>");
+            pageBox.append(mapBox);
+            for(var i = 0; i < data.length; i++) {
+                var lineTarget = $('<div class="line"></div>');
+                mapBox.append(lineTarget);
+                var item = data[i];
+                var maxLengh = 66;
+                for(var g =0; g < item.length; g++) {
+                    var one = item[g];
+                    if(one.description == '') continue;
+                    if(g != 0) {
+                        maxLengh-=24;
+                        if(maxLengh <= 0) break
+                    }
+                    var tplkBox = $('<div class="tplBox"></div>');
+                    lineTarget.append(tplkBox);
+                    var nameBox = $('<div class="nameBox"></div>');
+                    tplkBox.append(nameBox);
+                    nameBox.html(one.name);
+                    var descBox = $('<div class="desc"></div>');
+                    tplkBox.append(descBox);
+                    // 模板2总长度为 66 
+                    if(one.description.length <= maxLengh) {
+                        descBox.html(one.description);
+                        maxLengh -= one.description.length;
+                        one.description = "";
+                    }
+                    else {
+                        var nums = (6-maxLengh%6) + maxLengh
+                        var tpdesc = one.description.substr(0,nums);
+                        descBox.html(tpdesc);
+                        one.description = one.description.replace(tpdesc, "");
+                        break;
+                    }
+                }
+            }
+            var right2Box = $('<div class="rightIn2">');
+            for(var i = 0; i < data.length; i++) {
+                    pageBox.append(right2Box);
+                    var one = data[i];
+                    console.log(one);
+                    if(!one.length) {
+                        right2Box.append(`<div class="shiName"></div>`)
+                        continue
+                    }
+                    else {
+                        var sr = codeRender(one[0].genealogy);
+                        right2Box.append(`<div class="shiName"><div>第`+sr+`世</div></div>`)
+                    }
+            }
+            pageBox.append(
+                `
+                <div class="rightIn1"></div>
+                <div class="rightIn0"></div>
+                `
+            );
+        }
+        // 追加中间区域
+        function prependMiddle(target) {
+            console.log("middle");
+            var pageBox = $("<div class='middle'></div>");
+            target.prepend(pageBox);
+            pageBox.append(
+                `
+                <div id="gene_name">`+ data.genealogy_name + `</div>
+                <div class="black_sj">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>卷五</div>
+                <div>壮羡堂</div>
+                `
+            );
+            
+        }
+
+        // 追加左侧
+        function prependLeft(target, data) {
+            console.log("left");
+            var pageBox = $("<div class='page'></div>");
+            target.prepend(pageBox);
+            pageBox.append('<div class="lineTitle"></div>');
+            for(var i = 0; i < data.length; i++) {
+                var lineTarget = $('<div class="line"></div>');
+                pageBox.append(lineTarget);
+                var item = data[i];
+                var maxLengh = 120;
+                for(var g =0; g < item.length; g++) {
+                    var one = item[g];
+                    if(one.description == '') continue;
+                    if(g != 0) {
+                        maxLengh-=24;
+                        if(maxLengh <= 0) break
+                    }
+                    var tplkBox = $('<div class="tplBox"></div>');
+                    lineTarget.append(tplkBox);
+                    var nameBox = $('<div class="nameBox"></div>');
+                    tplkBox.append(nameBox);
+                    nameBox.html(one.name);
+                    var descBox = $('<div class="desc"></div>');
+                    tplkBox.append(descBox);
+                    // 模板总长度为 120
+                    if(one.description.length <= maxLengh) {
+                        descBox.html(one.description);
+                        maxLengh -= one.description.length;
+                        one.description = "";
+                    }
+                    else {
+                        var nums = (6-maxLengh%6) + maxLengh
+                        var tpdesc = one.description.substr(0,nums);
+                        descBox.html(tpdesc);
+                        one.description = one.description.replace(tpdesc, "");
+                        break;
+                    }
+                }
+            }
+        }
+    });
+
+</script>
+
+</html>
