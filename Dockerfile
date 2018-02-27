@@ -1,5 +1,6 @@
 FROM registry.docker-cn.com/zenato/puppeteer
 
+USER root
 RUN mkdir -p /usr/src/app && npm install -g pm2
 COPY . /usr/src/app/
 WORKDIR /usr/src/app
