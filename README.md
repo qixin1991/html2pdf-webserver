@@ -3,7 +3,7 @@
 ### Usage
 
 API URL: `/html-to-pdf`
-Default Server Port: `3000`
+Default Server Port: `3001`
 
 - `GET` method
 
@@ -45,7 +45,7 @@ apt install -y libxss1 libx11-xcb1 libasound2 \
 CentOS:
 
 ```
-yum install -y libXScrnSaver
+yum install pango.x86_64 libXcomposite.x86_64 libXcursor.x86_64 libXdamage.x86_64 libXext.x86_64 libXi.x86_64 libXtst.x86_64 cups-libs.x86_64 libXScrnSaver.x86_64 libXrandr.x86_64 GConf2.x86_64 alsa-lib.x86_64 atk.x86_64 gtk3.x86_64 ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc -y
 ```
 
 ### Install & Run
@@ -53,7 +53,7 @@ yum install -y libXScrnSaver
 npm install
 pm2 start ecosystem.json
 ```
-Open this URL: `http://localhost:3000/html-to-pdf?html=https://news.ycombinator.com` for test.
+Open this URL: `http://localhost:3001/html-to-pdf?html=https://news.ycombinator.com` for test.
 
 ### Chinese Note
 Due to the `GFW`,`Chromium` download can't be accessed.Issue the following command:

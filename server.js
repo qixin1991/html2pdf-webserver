@@ -137,7 +137,7 @@ async function convertHtml2Pdf(html, options) {
 
 app.use(router.routes());
 
-let port = process.env.NODE_PORT || 3000;
+let port = process.env.NODE_PORT || 3001;
 app.listen(port, function () {
     console.log(` ---> Server running on port: ${port}`);
 });
